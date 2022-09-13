@@ -7,13 +7,17 @@ import { useSelector, useDispatch } from 'react-redux'
 import {addTodo, deleteTodo, fetchTodos, toggleTodo} from '../app/actions/todosActions'
 import {login} from '../app/actions/loginAction'
 import {MdDarkMode} from 'react-icons/md'
+import { useTranslation } from 'react-i18next';
+import i18n from "../i18n";
+import Settings from "./settings";
 
 function App() {
+const { t } = useTranslation();
 const dispatch = useDispatch()
 const [content,setContent] = useState('')
-const [dark,setDark] = useState(false)
 const {todos} = useSelector(state => state.todos)
 const {isLogin} = useSelector(state => state.login)
+const {dark} = useSelector(state => state.settings)
 
 // saving todos
 const onSave=(content)=>{
@@ -22,7 +26,7 @@ const onSave=(content)=>{
   setContent('')
   }
   else{
-    alert('Lütfen en az 3 karakterli bir veri giriniz.')
+    alert(t('add_alert'))
   }
 }
 
@@ -43,7 +47,7 @@ const onLogin=(content)=>{
   setContent('')
   }
   else{
-    alert('Lütfen en az 3 karakterli bir isim giriniz.')
+    alert(t('get_name_alert'))
   }
 }
 
@@ -60,7 +64,7 @@ const name = localStorage.getItem("name");
          <div className={styles.body} id={!dark ? '' : styles.dark }>
          <div className={styles.appContainer}>
          <div className={styles.form}>
-             <p className={styles.name} id={!dark ? '' : styles.darkWelcome }>Welcome <span>{name}</span>, Let's write some todos.</p>
+             <p className={styles.name} id={!dark ? '' : styles.darkWelcome }> {t('welcome')} <span>{name}</span>, {t('welcome_message')}</p>
              <Form onChange={(e)=>setContent(e.target.value)} content={content} onClick={()=>{onSave(content)}}/>
          </div>
              <div className={styles.todosContent}>
@@ -81,15 +85,17 @@ const name = localStorage.getItem("name");
              </div>
     
          </div>
-          <div className={styles.theme} 
-          onClick={()=>setDark(!dark)}
-          >
-          {!dark ? <MdDarkMode/>: <MdDarkMode style={{color:'white'}}/>}
-          </div>
+         <Settings />
          </div>
       ) :
       ( 
-        <Login onChange={(e)=>setContent(e.target.value)} content={content} onClick={()=>{onLogin(content)}}/>
+        <div className={styles.body} id={!dark ? '' : styles.dark }>
+        <div className={styles.login}>
+        <h1 id={!dark ? '' : styles.darkWelcome }>{t('get_name_header')}</h1>
+        <Login  onChange={(e)=>setContent(e.target.value)} content={content} onClick={()=>{onLogin(content)}}/>
+        </div>
+        <Settings />
+      </div>
       )
       }
     </>

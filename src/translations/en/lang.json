@@ -1,0 +1,10 @@
+{
+    "task_placeholder":"Let's try to add something.",
+    "welcome":"Welcome",
+    "welcome_message":"Let's write some todos.",
+    "add_alert":"Please add a todo at least 3 characters long.",
+    "update_alert":"Todo must be at least 3 characters long.",
+    "get_name_header":"Welcome What is your name?",
+    "get_name_placeholder":"Give me your name",
+    "get_name_alert":"Your name must be at least 3 characters long."
+}

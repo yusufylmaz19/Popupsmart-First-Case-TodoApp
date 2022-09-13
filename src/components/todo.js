@@ -4,9 +4,11 @@ import styles from '../styles/app.module.scss';
 import { useDispatch } from 'react-redux'
 import {updateTodo} from '../app/actions/todosActions'
 import Form from './form';
+import { useTranslation } from 'react-i18next';
 
 export default function Todo({todos,onDelete,onToggle}) {
 
+  const { t } = useTranslation();
   const [content,setContent]=useState(todos.content)
   const [isEditing,setIsEditing]=useState(false)
   const dispatch = useDispatch()
@@ -16,7 +18,7 @@ export default function Todo({todos,onDelete,onToggle}) {
     if(content!=='' && content.length>2){
       dispatch(updateTodo(id,content))
     }else{
-      alert('Lütfen en az 3 karakterli bir veri giriniz.')
+      alert(t('update_alert'))
     }
   }
 

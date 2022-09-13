@@ -1,0 +1,10 @@
+{
+    "task_placeholder":"Bir şeyler yazın.",
+    "welcome":"Hoşgeldin",
+    "welcome_message":"Hadi birkaç todo yazalım.",
+    "add_alert":"Lütfen en az 3 karakterli bir todo giriniz.",
+    "update_alert":"Todo en az 3 karakterli olmalıdır.",
+    "get_name_header":"Hoşgeldiniz isminiz nedir?",
+    "get_name_placeholder":"Bir isim yazın.",
+    "get_name_alert":"İsminiz en az 3 karaterli olmalıdır."
+}
