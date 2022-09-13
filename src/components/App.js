@@ -6,9 +6,7 @@ import styles from '../styles/app.module.scss';
 import { useSelector, useDispatch } from 'react-redux'
 import {addTodo, deleteTodo, fetchTodos, toggleTodo} from '../app/actions/todosActions'
 import {login} from '../app/actions/loginAction'
-import {MdDarkMode} from 'react-icons/md'
 import { useTranslation } from 'react-i18next';
-import i18n from "../i18n";
 import Settings from "./settings";
 
 function App() {
