@@ -9,7 +9,7 @@ export default function Settings() {
 const { dark, lang } = useSelector(state => state.settings);
 const dispatch = useDispatch();
   return (
-    <div className={styles.settings}>
+    <div className={styles.settings} id={!dark ? '' : styles.dark }>
     <div className={styles.lang} onClick={()=>{
         dispatch(toggleLang())
         i18n.changeLanguage(lang ? 'en' : 'tr');

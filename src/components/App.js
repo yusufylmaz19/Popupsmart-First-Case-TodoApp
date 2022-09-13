@@ -60,39 +60,40 @@ const name = localStorage.getItem("name");
     <>
       { (isLogin || name!==null) ? (
          <div className={styles.body} id={!dark ? '' : styles.dark }>
+         <Settings />
          <div className={styles.appContainer}>
          <div className={styles.form}>
              <p className={styles.name} id={!dark ? '' : styles.darkWelcome }> {t('welcome')} <span>{name}</span>, {t('welcome_message')}</p>
              <Form onChange={(e)=>setContent(e.target.value)} content={content} onClick={()=>{onSave(content)}}/>
          </div>
-             <div className={styles.todosContent}>
-             {
-               todos.map((todo)=>(
-                 <Todo
-                 key={todo.id}
-                 todos={todo}
-                 onDelete={()=>{
-                   onDelete(todo.id)
-                  }}
-                  onToggle={()=>{
-                    onToggle(todo.id,todo.isCompleted)
-                   }}
-                  />
-                  ))
-                }
-             </div>
+         <div className={styles.todosContent}>
+        {
+          todos.map((todo)=>(
+            <Todo
+            key={todo.id}
+            todos={todo}
+            onDelete={()=>{
+              onDelete(todo.id)
+            }}
+            onToggle={()=>{
+              onToggle(todo.id,todo.isCompleted)
+              }}
+            />
+            ))
+          }
+         </div>
     
          </div>
-         <Settings />
          </div>
       ) :
       ( 
         <div className={styles.body} id={!dark ? '' : styles.dark }>
+        <Settings />
         <div className={styles.login}>
         <h1 id={!dark ? '' : styles.darkWelcome }>{t('get_name_header')}</h1>
         <Login  onChange={(e)=>setContent(e.target.value)} content={content} onClick={()=>{onLogin(content)}}/>
         </div>
-        <Settings />
+        
       </div>
       )
       }
