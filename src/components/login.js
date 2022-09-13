@@ -7,7 +7,7 @@ export default function Login({onChange,onClick,content}) {
   return (
     <div>
         <input content={content} onChange={onChange} type="text" placeholder={t('get_name_placeholder')} />
-        <button onClick={onClick}>Devam Et</button>
+        <button onClick={onClick}>{t('get_name_button')}</button>
     </div>
     )
 }

@@ -6,5 +6,6 @@
     "update_alert":"Todo en az 3 karakterli olmalıdır.",
     "get_name_header":"Hoşgeldiniz isminiz nedir?",
     "get_name_placeholder":"Bir isim yazın.",
+    "get_name_button":"Devam et",
     "get_name_alert":"İsminiz en az 3 karaterli olmalıdır."
 }
